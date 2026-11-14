@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: raw_nhtsa
+    description: "NHTSA recall flat file (FLAT_RCL_POST_2010). One row per campaign x make x model x year x component, as filed by the manufacturer under Part 573."
+    tables: [{name: recalls}]
+  - name: raw_tc
+    description: "Transport Canada Vehicle Recalls Database (vrdb_full_monthly.csv). One row per recall x make x model x year."
+    tables: [{name: recalls}]
+  - name: raw_epa
+    description: "EPA fueleconomy.gov vehicles.csv. One row per certified model variant per year (engine, transmission, drive)."
+    tables: [{name: vehicles}]
+  - name: raw_meta
+    tables: [{name: source_files}]

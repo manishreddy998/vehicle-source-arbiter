@@ -1,0 +1,7 @@
+make,model_core,year_from,year_to,canonical_make,canonical_model,reason
+DODGE,RAM 1500,2011,2099,RAM,1500,Ram became its own brand from model year 2011. Many sources still write Dodge Ram
+DODGE,RAM 2500,2011,2099,RAM,2500,Ram became its own brand from model year 2011
+DODGE,RAM 3500,2011,2099,RAM,3500,Ram became its own brand from model year 2011
+RAM,1500,1900,2010,DODGE,RAM 1500,Before model year 2011 the truck was a Dodge Ram 1500
+RAM,2500,1900,2010,DODGE,RAM 2500,Before model year 2011 the truck was a Dodge Ram 2500
+RAM,3500,1900,2010,DODGE,RAM 3500,Before model year 2011 the truck was a Dodge Ram 3500

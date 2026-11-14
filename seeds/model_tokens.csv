@@ -1,0 +1,40 @@
+token,role,reason
+2WD,noise,drive type is an attribute of a variant not a different model
+4WD,noise,drive type
+AWD,noise,drive type
+FWD,noise,drive type
+RWD,noise,drive type
+4X4,noise,drive type
+4X2,noise,drive type
+4MATIC,noise,Mercedes-Benz drive system name
+XDRIVE,noise,BMW drive system name
+QUATTRO,noise,Audi drive system name
+PICKUP,noise,body word
+TRUCK,noise,body word
+CAB,noise,cab style
+CHASSIS,noise,cab-chassis is a configuration
+CREW,noise,cab style
+REGULAR,noise,cab style
+QUAD,noise,cab style
+MEGA,noise,cab style
+SUPERCAB,noise,cab style
+SUPERCREW,noise,cab style
+DOUBLE,noise,cab style
+EXTENDED,noise,cab style
+LWB,noise,wheelbase
+SWB,noise,wheelbase
+FFV,noise,flex-fuel flag in EPA names
+CNG,noise,fuel flag in EPA names
+HFE,noise,Ram 1500 high-fuel-efficiency trim
+ECODIESEL,noise,engine name
+DIESEL,noise,engine name
+CLASSIC,variant,Ram 1500 Classic (2019 to 2024) is a different generation from the 1500 sold the same years
+HYBRID,variant,hybrid models are separate models in EPA data and recalls
+ELECTRIC,variant,electric versions are separate models
+EV,variant,electric versions are separate models
+PHEV,variant,plug-in hybrids are separate models
+HD,variant,heavy duty versions are separate models
+LD,variant,Silverado 1500 LD (2019 and 2022) is the previous generation sold alongside the new one
+SD,noise,Ford abbreviation for Super Duty. F250 SD and F250 Super Duty are the same truck
+SUPER,noise,part of Super Duty
+DUTY,noise,part of Super Duty

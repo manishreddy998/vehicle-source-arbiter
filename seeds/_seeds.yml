@@ -1,0 +1,22 @@
+version: 2
+seeds:
+  - name: model_tokens
+    description: "Tokens dropped from model names (noise: drive, cab, body, engine words) or kept because they mark a different model (variant)."
+    config: {column_types: {token: varchar, role: varchar}}
+  - name: make_aliases
+    description: "Make spellings that mean the same manufacturer brand."
+    config: {column_types: {alias: varchar, canonical_make: varchar}}
+  - name: model_aliases
+    description: "Year-bounded renames, e.g. Dodge Ram 1500 became Ram 1500 from model year 2011."
+    config: {column_types: {model_core: varchar, canonical_model: varchar, year_from: integer, year_to: integer}}
+  - name: model_groups
+    description: "Names a regulator uses for a group of models, e.g. Transport Canada's Silverado HD = Silverado 2500 + 3500."
+    config: {column_types: {group_name: varchar, member: varchar}}
+  - name: light_duty_suffixes
+    description: "Series numbers EPA leaves out of light-duty pickup names (Silverado 1500 is EPA's Silverado)."
+    config: {column_types: {suffix: varchar}}
+  - name: pattern_rules
+    description: "Regex renames applied per make after normalization, e.g. Mercedes-Benz C 300 -> C-Class."
+    config: {column_types: {pattern: varchar, replacement: varchar}}
+  - name: system_component_map
+    description: "Which US component categories are compatible with each Canadian system type. Used only when two recalls share no manufacturer code."

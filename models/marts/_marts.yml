@@ -1,0 +1,27 @@
+version: 2
+models:
+  - name: dim_vehicle_model
+    description: "One record per make, model and model year. display_name comes from the highest-ranked source that has it (EPA, then the US filing, then Transport Canada) and display_name_source says which. Drive, fuel and class come only from EPA and stay empty otherwise."
+    columns:
+      - name: vehicle_model_id
+        data_tests: [unique, not_null]
+      - name: display_name_source
+        data_tests: [{accepted_values: {arguments: {values: [epa, us_nhtsa, ca_transport, derived]}}}]
+  - name: fct_recall
+    description: "One row per recall per country."
+    data_tests:
+      - unique_combination: {arguments: {columns: [country, recall_id]}}
+  - name: fct_recall_link
+    description: "A US campaign and the Canadian recall that is the same recall, with the rule, confidence and days between filings."
+    columns:
+      - name: link_id
+        data_tests: [unique, not_null]
+      - name: rule
+        data_tests: [{accepted_values: {arguments: {values: [manufacturer_recall_code, same_vehicles_date_system]}}}]
+  - name: bridge_recall_vehicle
+    description: "Which vehicle models each recall covers, the rule used, and whether it is resolved, resolved by the recall's own text, resolved via the linked recall in the other country, ambiguous, or not in EPA."
+    columns:
+      - name: vehicle_model_id
+        data_tests: [not_null, {relationships: {arguments: {to: ref('dim_vehicle_model'), field: vehicle_model_id}}}]
+  - name: vehicle_record
+    description: "dim_vehicle_model plus what has happened to the model: US recalls, Canadian recalls, how many Canadian recalls have a US twin, and Canada-only recalls."

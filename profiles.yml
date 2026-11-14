@@ -1,0 +1,7 @@
+vehicle_source_arbiter:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', 'warehouse.duckdb') }}"
+      threads: 4

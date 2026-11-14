@@ -1,0 +1,29 @@
+name: vehicle_source_arbiter
+version: "1.0.0"
+config-version: 2
+profile: vehicle_source_arbiter
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target"]
+
+on-run-start:
+  # Name rules live in the database as SQL functions, so dbt models and the explain tool use the exact same rules.
+  - "{{ create_name_functions() }}"
+
+vars:
+  link_window_days: 120          # max days between a US and a Canadian filing for the same manufacturer recall code
+  fallback_window_days: 21       # stricter window when there is no shared recall code
+
+models:
+  vehicle_source_arbiter:
+    +persist_docs: {relation: true, columns: true}
+    staging: {+schema: staging, +materialized: table}
+    intermediate: {+schema: intermediate, +materialized: table}
+    marts: {+schema: marts, +materialized: table}
+    reports: {+schema: reports, +materialized: table}
+seeds:
+  vehicle_source_arbiter:
+    +schema: rules

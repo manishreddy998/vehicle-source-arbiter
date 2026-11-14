@@ -1,0 +1,2 @@
+make,pattern,replacement,reason
+MERCEDES BENZ,^(AMG )?(A|B|C|E|S|G|CLA|CLS|GLA|GLB|GLC|GLE|GLS|SL|SLC)[ ]?[0-9]+[A-Z]*$,\2CLASS,US filings name the engine variant (C 300). Canada and EPA name the class (C-Class)
