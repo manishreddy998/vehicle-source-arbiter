@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Download the three public sources. About 220 MB in total.
 set -euo pipefail
-cd "$(dirname "$0")/../data/raw"
+mkdir -p "$(dirname "$0")/../data/raw" && cd "$(dirname "$0")/../data/raw"
 mkdir -p nhtsa tc epa
 curl -fsSL -o nhtsa/FLAT_RCL_POST_2010.zip https://static.nhtsa.gov/odi/ffdd/rcl/FLAT_RCL_POST_2010.zip
 curl -fsSL -o nhtsa/RCL.txt https://static.nhtsa.gov/odi/ffdd/rcl/RCL.txt
